@@ -32,20 +32,7 @@ public class PlayerController {
     public List<Player> fun2(){
         return playerRepository.findAll();
     }
-
-    @RequestMapping(value = "/getPlayer", method = RequestMethod.GET, produces = {"application/json"})
-    public Player fun3(@RequestParam(name = "id") Long playerID){
-        Player reqPlayer;
-        try {
-            reqPlayer = playerRepository.getOne(playerID);
-            return reqPlayer;
-        }
-        catch(Exception e){
-            e.printStackTrace();
-            return null;
-        }
-    }
-
+        
     //UPDATE
     @RequestMapping(method = RequestMethod.PUT, value = "/updatePlayer")
     public String fun4(@RequestParam(name = "id") Long playerID, @RequestParam(name = "name", defaultValue = "false") String newName,
